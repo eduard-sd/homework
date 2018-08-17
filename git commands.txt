@@ -6,7 +6,7 @@ git init - Создайте новый репозиторий
 
 
 git add hello.html -  добавить в отслеживание файл хелло.  Если вы хотите добавить изменения в репозиторий, используйте команду. 
-git add . - («.»). Это самый краткий и удобный путь для добавления всех изменений в файлы текущего каталога и его подкаталоги
+git add . -  «.» это самый краткий и удобный путь для добавления всех изменений в файлы текущего каталога и его подкаталоги
 
 git commit -m "First Commit" - добавить комментарий к файлу хелло/ Если вы опустите метку -m из командной строки, git перенесет вас в редактор (выход - ESC, ввести :wq и нажать Enter)
 
@@ -16,5 +16,49 @@ git status - чтобы проверить текущее состояние репозитория.
 
 git сheckout - для отмены изменений.
 git reset - Если вы решили, что не хотите коммитить изменения, команда состояния напомнит вам о том, что с помощью команды git reset можно снять индексацию этих изменений. ОТмена git add
+
+
+git log - Получение списка произведенных изменений
+git log --pretty=oneline  -  однострочный формат log
+
+git log --pretty=oneline --max-count=2
+git log --pretty=oneline --since='5 minutes ago'
+git log --pretty=oneline --until='5 minutes ago'
+git log --pretty=oneline --author=<your name>
+git log --pretty=oneline --all
+git log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short   - мне подходит следующий формат лога
+
+--pretty="..."  —  определяет формат вывода.
+%h  —  укороченный хэш коммита
+%d  —  дополнения коммита («головы» веток или теги)
+%ad  —  дата коммита
+%s  —  комментарий
+%an  —  имя автора
+--graph  —  отображает дерево коммитов в виде ASCII-графика
+--date=short  —  сохраняет формат даты коротким и симпатичным
+
+
+==================================================А Л И А С Ы========================================================
+
+git config --global alias.co checkout
+git config --global alias.ci commit
+git config --global alias.st status
+git config --global alias.br branch
+git config --global alias.hist "log --pretty=format:'%h %ad | %s%d [%an]' --graph --date=short"
+git config --global alias.type 'cat-file -t'
+git config --global alias.dump 'cat-file -p'
+
+
+alias gs='git status '
+alias ga='git add '
+alias gb='git branch '
+alias gc='git commit'
+alias gd='git diff'
+alias go='git checkout '  -  для переключения в отдельную ветку
+alias gk='gitk --all&'
+alias gx='gitx --all'
+
+alias got='git '
+alias get='git '
 
 
